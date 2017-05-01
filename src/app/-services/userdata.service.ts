@@ -48,7 +48,6 @@ export class UserdataService {
     return this.http.put(url,body,options).map(res => res.json());
   }
 
-
   getUser(input) {
     let url = `${this.MOCKAPI_URL}/${this.currentUser.id}`;
     return this.http.get(url).map(res => res.json());

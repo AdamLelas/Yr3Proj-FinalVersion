@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { User } from '../-models/index';
 import { UserService, UserdataService } from '../-services/index';
+import { BmiService } from '../bmi-calculator/index';
 
 
 
@@ -19,6 +20,15 @@ export class HomeComponent implements OnInit {
     users: User[] = [];
     bmr: number;
     show: boolean = false;
+    user2: User;
+
+    username:string;
+    firstName:string;
+    lastName:string;
+    weight:number;
+    height:number;
+    age:number;
+    goalWeight:number;
 
     tempa;
     tempfn;
@@ -27,26 +37,55 @@ export class HomeComponent implements OnInit {
     temph;
     tempg;
 
-    constructor(private userService: UserService, private userDataService: UserdataService) {
+    constructor(private userService: UserService, private userDataService: UserdataService, private bmiService: BmiService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
     }
 
+    // getUserFromMock(){
+    //     this.userDataService.getUser(this.currentUser.id).subscribe(
+    //         data => {
+    //             this.user2 = data;
+    //         },
+    //         error => {
+    //             console.error(error);
+    //         }
 
+    //     )
+    // }
 
     ngOnInit() {
         this.loadAllUsers();
         this.calcBmr();
-        this.tempa = this.currentUser.age;
-        this.tempfn = this.currentUser.firstName;
-        this.templn = this.currentUser.lastName;
-        this.tempw = this.currentUser.weight;
-        this.temph = this.currentUser.height;
-        this.tempg = this.currentUser.goalWeight;
+        this.getUserInfo(this.currentUser);
+        // this.tempa = this.currentUser.age;
+        // this.tempfn = this.currentUser.firstName;
+        // this.templn = this.currentUser.lastName;
+        // this.tempw = this.currentUser.weight;
+        // this.temph = this.currentUser.height;
+        // this.tempg = this.currentUser.goalWeight;
     }
 
+    getUserInfo(elephant){
+        this.bmiService.getOneInfo(elephant.id).subscribe(
+      data => {
+          console.log('search results', data)
+          this.username = data.username;
+          this.firstName = data.firstName;
+          this.lastName = data.lastName;
+          this.weight = data.weight;
+          this.height = data.height;
+          this.goalWeight = data.goalWeight;
+          this.age = data.age;
+    },    
+      (err) => alert("Error getting user information:" + err)
+    )
+  }
     deleteUser(id: number) {
-        this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
-        this.delUser2();
+        if (confirm("Delete User? This is permanent and cannot be undone!")) {
+            this.userService.delete(id).subscribe(() => { this.loadAllUsers() });
+            this.delUser2();
+        }
     }
 
     private loadAllUsers() {
@@ -58,9 +97,9 @@ export class HomeComponent implements OnInit {
     }
 
     delUser2() {
-        {
-            this.userDataService.deleteUser2().subscribe()
-        }
+
+        this.userDataService.deleteUser2().subscribe()
+
     }
 
     updateUser() {

@@ -23,6 +23,11 @@
 .additional-info-journal{
   /*float:left;*/
   border-style: solid;
-  border-color: lightgray;
+  border-color: #5bc0de;
+  border-radius: 0.5em;
   background-color: lightsteelblue;
+}
+
+.btn {
+  margin-bottom: 0.5em;
 }

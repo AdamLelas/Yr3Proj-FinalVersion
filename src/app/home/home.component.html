@@ -1,17 +1,17 @@
-<div class="col-md-9">
-    <h1>Hi {{currentUser.firstName}}!</h1>
-    <button type="button" class="btn btn-info" (click)="show = !show">Edit Details</button>
+<div class="col-md-12">
+    <h1>Hi {{firstName}}!</h1>
 
-    <h3>Details:</h3>
     <!--before click-->
     <div *ngIf="!show">
+        <button type="button" class="btn btn-info" (click)="show = !show">Edit Details</button>
 
+        <h3>Details:</h3>
         <div class="row">
             <div class="col-sm-3" style="text-align:right;">
                 <label class="control-label" style="padding-top:0.5em;"> Username:</label>
             </div>
             <div class="col-sm-6">
-                <p style="padding-top:0.5em;">{{currentUser.username}}</p>
+                <p style="padding-top:0.5em;">{{username}}</p>
             </div>
 
         </div>
@@ -21,7 +21,7 @@
                 <label class="control-label" style="padding-top:0.5em;"> First name:</label>
             </div>
             <div class="col-sm-6">
-                <p style="padding-top:0.5em;">{{currentUser.firstName}}</p>
+                <p style="padding-top:0.5em;">{{firstName}}</p>
             </div>
         </div>
 
@@ -30,7 +30,7 @@
                 <label class="control-label" style="padding-top:0.5em;"> Last name: </label>
             </div>
             <div class="col-sm-6">
-                <p style="padding-top:0.5em;">{{currentUser.lastName}}</p>
+                <p style="padding-top:0.5em;">{{lastName}}</p>
             </div>
         </div>
 
@@ -39,7 +39,7 @@
                 <label class="control-label" style="padding-top:0.5em;"> Weight: </label>
             </div>
             <div class="col-sm-6">
-                <p style="padding-top:0.5em;">{{currentUser.weight}}</p>
+                <p style="padding-top:0.5em;">{{weight}}</p>
             </div>
         </div>
 
@@ -48,7 +48,7 @@
                 <label class="control-label" style="padding-top:0.5em;"> Height:</label>
             </div>
             <div class="col-sm-6">
-                <p style="padding-top:0.5em;">{{currentUser.height}}</p>
+                <p style="padding-top:0.5em;">{{height}}</p>
             </div>
         </div>
 
@@ -57,7 +57,7 @@
                 <label class="control-label" style="padding-top:0.5em;">Age:</label>
             </div>
             <div class="col-sm-6">
-                <p style="padding-top:0.5em;">{{currentUser.age}}</p>
+                <p style="padding-top:0.5em;">{{age}}</p>
             </div>
         </div>
 
@@ -66,7 +66,7 @@
                 <label class="control-label" style="padding-top:0.5em;"> Goal Weight:</label>
             </div>
             <div class="col-sm-6">
-                <p style="padding-top:0.5em;"> {{currentUser.goalWeight}}</p>
+                <p style="padding-top:0.5em;"> {{goalWeight}}</p>
             </div>
         </div>
 
@@ -78,13 +78,13 @@
 
     <!--after click-->
     <div *ngIf="show">
-
+        <h3>Details:</h3>
         <div class="row">
             <div class="col-sm-3" style="text-align:right;">
                 <label class="control-label" style="padding-top:0.5em;"> Username: </label>
             </div>
             <div class="col-sm-6">
-                <p style="padding-top:0.5em;">{{currentUser.username}}</p>
+                <p style="padding-top:0.5em;">{{username}}</p>
             </div>
         </div>
         <!--<div class="form-group">-->
@@ -93,7 +93,7 @@
                 <label class="control-label" style="padding-top:0.5em;"> First name: </label>
             </div>
             <div class="col-sm-6">
-                <input [(ngModel)]="tempfn" name="currentUser.firstName" class="form-control" placeholder="{{currentUser.firstName}}">
+                <input [(ngModel)]="firstName" name="firstName" class="form-control" placeholder="{{firstName}}">
             </div>
         </div>
 
@@ -102,7 +102,7 @@
                 <label class="control-label" style="padding-top:0.5em;"> Last name: </label>
             </div>
             <div class="col-sm-6">
-                <input [(ngModel)]="templn" name="currentUser.lastName" class="form-control" placeholder="{{currentUser.lastName}}">
+                <input [(ngModel)]="lastName" name="lastName" class="form-control" placeholder="{{lastName}}">
             </div>
         </div>
 
@@ -111,7 +111,7 @@
                 <label class="control-label" style="padding-top:0.5em;"> Weight: </label>
             </div>
             <div class="col-sm-6">
-                <input [(ngModel)]="tempw" name="currentUser.weight" class="form-control" placeholder="{{currentUser.weight}}">
+                <input [(ngModel)]="weight" name="weight" class="form-control" placeholder="{{weight}}">
             </div>
         </div>
 
@@ -120,7 +120,7 @@
                 <label class="control-label" style="padding-top:0.5em;"> Height: </label>
             </div>
             <div class="col-sm-6">
-                <input [(ngModel)]="temph" name="currentUser.height" class="form-control" placeholder="{{currentUser.height}}">
+                <input [(ngModel)]="height" name="height.height" class="form-control" placeholder="{{height}}">
             </div>
         </div>
 
@@ -129,7 +129,7 @@
                 <label class="control-label" style="padding-top:0.5em;"> Age: </label>
             </div>
             <div class="col-sm-6">
-                <input [(ngModel)]="tempa" name="newAge" class="form-control" placeholder="{{currentUser.age}}">
+                <input [(ngModel)]="age" name="age" class="form-control" placeholder="{{age}}">
             </div>
         </div>
 
@@ -138,7 +138,7 @@
                 <label class="control-label" style="padding-top:0.5em;"> Goal Weight: </label>
             </div>
             <div class="col-sm-6">
-                <input [(ngModel)]="tempg" name="tempg" class="form-control" placeholder="{{currentUser.goalWeight}}">
+                <input [(ngModel)]="goalWeight" name="goalWeight" class="form-control" placeholder="{{goalWeight}}">
             </div>
         </div>
 
@@ -153,13 +153,13 @@
         <div class="row">
             <label class="control-label" style="padding-top:0.5em;"> Total amount of calories needed to maintain weight is : {{bmr}} </label>
         </div>
-        
-        <button type="button" (click)="updateUser()" class="btn btn-primary" style="margin-top: 1em;">Save</button>
 
+
+        <button type="button" (click)="updateUser()" (click)="show = !show" class="btn btn-primary" style="margin-top: 1em;">Save</button>
+        <button type="button" class="btn btn-info" style="margin-top: 1em;" (click)="show = !show">Cancel</button>
         <!--</div>-->
 
-        <button [routerLink]="['/login']" (click)="deleteUser(currentUser.id)">Delete</button>
+        <button type="button" class="btn btn-danger" style="margin-top: 1em;" [routerLink]="['/login']" (click)="deleteUser(currentUser.id)">Delete User</button>
 
-        <!--<h3>{{bmiCalc()}}</h3>-->
 
     </div>

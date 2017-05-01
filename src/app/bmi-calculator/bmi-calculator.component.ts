@@ -15,7 +15,8 @@ export class BmiCalculatorComponent implements OnInit {
   // model: any = {};
   loading = false;
   returnUrl: string;
-
+  show:boolean=false;
+  showchart:boolean=false;
 
   feet: number = 0;
   inches: number = 0;

@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+
+#push,
+.footer{
+  height: 30px;
+}
+
+.footer {
+  position: relative;
+  margin-top: -150px; /* negative value of footer height */
+  height: 150px;
+  clear:both;
+  padding-top:20px;
+  text-align: center;
+  background-color: lightsteelblue;
+}
+
+#wrap {
+   min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -30px;
+}
+
+#main {
+  /*overflow:auto;*/
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+.imagestyle img{
+    width: 100%;
+    
+    
+}
+
+.imagestyle{
+    border-style: solid;
+    border-color: lightsteelblue;
+    margin-bottom: 2em;
+}
