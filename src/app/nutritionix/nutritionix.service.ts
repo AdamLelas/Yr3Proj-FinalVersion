@@ -48,16 +48,14 @@ export class NutritionixService {
       .map(res => res.json().hits);
   }
 
-  // setJournalId(input: number) {
-  //   this.journalId = input;
-  // }
+
 
   addToJournal(food:Food, input:number) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     let newFood = new Food(food);
     let body = JSON.stringify(newFood);
-    // let journal = this.getTodaysJournalEntry();
+
     let url = `${this.MOCKAPI_URL}/${this.currentUser.id}/${this.journalExt}/${input}/${this.foodItemExt}`;
     this.searchForDailyID2(food, input);
     return this.http.post(url, body, options).map((res: Response) => res.json());
@@ -91,16 +89,6 @@ export class NutritionixService {
     console.log("\n\n\nFood Data", food);
     let temp:number = Number(localdata.totalTotalFat + food.nf_total_fat);
     console.log("\n\n\nTemp Data", temp);
-
-    // localdata.totalCalories = localdata.totalCalories + food.nf_calories;
-    // localdata.totalTotalFat += food.nf_total_fat;
-    // localdata.totalSaturatedFat += food.nf_saturated_fat;
-    // localdata.totalSodium += food.nf_sodium;
-    // localdata.totalCarbohydrates += food.nf_total_carbohydrate;
-    // localdata.totalFiber += food.nf_dietary_fiber;
-    // localdata.totalSugar += food.nf_sugars;
-    // localdata.totalProtein += food.nf_protein;
-
     let url = `${this.MOCKAPI_URL}/${this.currentUser.id}/dailyintake/${input}`;
     let body = JSON.stringify(localdata);
     console.log("\n\n\nAdd to Daily JSON", body);

@@ -87,7 +87,7 @@
                 <p style="padding-top:0.5em;">{{username}}</p>
             </div>
         </div>
-        <!--<div class="form-group">-->
+        
         <div class="row">
             <div class="col-sm-3" style="text-align:right;">
                 <label class="control-label" style="padding-top:0.5em;"> First name: </label>
@@ -157,7 +157,7 @@
 
         <button type="button" (click)="updateUser()" (click)="show = !show" class="btn btn-primary" style="margin-top: 1em;">Save</button>
         <button type="button" class="btn btn-info" style="margin-top: 1em;" (click)="show = !show">Cancel</button>
-        <!--</div>-->
+        
 
         <button type="button" class="btn btn-danger" style="margin-top: 1em;" [routerLink]="['/login']" (click)="deleteUser(currentUser.id)">Delete User</button>
 
